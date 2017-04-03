@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories(basePackages = "eu.makdeniss.repository")
 public class SpringDataElasticsearchDemoApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringDataElasticsearchDemoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SpringDataElasticsearchDemoApplication.class, args);
+    }
 }
