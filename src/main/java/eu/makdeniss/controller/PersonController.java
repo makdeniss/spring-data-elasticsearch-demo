@@ -41,7 +41,6 @@ public class PersonController {
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
-
     @GetMapping("/people/{id}")
     public ResponseEntity<PersonDTO> getPerson(@PathVariable Long id) {
         log.info("REST request to get Person: {}", id);
@@ -51,7 +50,7 @@ public class PersonController {
 
     @GetMapping("/_search/people")
     public ResponseEntity<List<PersonDTO>> searchPeople(@RequestParam String query, Pageable pageable) throws URISyntaxException {
-        log.debug("REST request to search for a page of Appointments for query {}", query);
+        log.info("REST request to search for a page of Appointments for query {} ", query);
         Page<PersonDTO> page = personService.search(query, pageable);
         HttpHeaders headers = PaginationUtil.generateSearchPaginationHttpHeaders(query, page, "/api/_search/people");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
