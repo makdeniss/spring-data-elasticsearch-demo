@@ -44,7 +44,7 @@ public class PersonController {
 
     @GetMapping("/people/{id}")
     public ResponseEntity<PersonDTO> getPerson(@PathVariable Long id) {
-        log.info("REST request to get Person : {}", id);
+        log.info("REST request to get Person: {}", id);
         PersonDTO personDTO = personService.findOne(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(personDTO));
     }

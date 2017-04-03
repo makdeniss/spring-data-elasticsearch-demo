@@ -14,7 +14,7 @@ import javax.persistence.Id;
 @Entity
 @Document(indexName = "person", type = "person")
 public class Person {
-    private Integer id;
+    private Long id;
     private String firstName;
     private String lastName;
     private String email;
@@ -24,11 +24,11 @@ public class Person {
     @Id
     @org.springframework.data.annotation.Id
     @Column(name = "id")
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
