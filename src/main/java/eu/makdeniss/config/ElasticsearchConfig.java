@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.core.EntityMapper;
+import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 import java.io.IOException;
@@ -17,6 +18,7 @@ import java.io.IOException;
  */
 
 @Configuration
+@EnableElasticsearchRepositories(basePackages = "eu.makdeniss.search")
 public class ElasticsearchConfig {
 
     @Bean

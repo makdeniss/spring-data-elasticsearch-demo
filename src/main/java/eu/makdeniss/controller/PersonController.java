@@ -55,4 +55,12 @@ public class PersonController {
         HttpHeaders headers = PaginationUtil.generateSearchPaginationHttpHeaders(query, page, "/api/_search/people");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
+
+    @GetMapping("/indexsearch")
+    public String indexSearch() {
+        log.info("REST request to get DB data and put it into Elastic Search");
+        personService.indexSearch();
+
+        return "Search index finished";
+    }
 }

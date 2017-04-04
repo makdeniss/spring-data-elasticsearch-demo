@@ -53,8 +53,18 @@ public class PersonServiceImpl implements PersonService {
     @Override
     @Transactional(readOnly = true)
     public Page<PersonDTO> search(String query, Pageable pageable) {
-        log.info("Request to search for a page of People with a query" + query);
+        log.info("Request to search for a page of People with a query " + query);
         Page<Person> result = personSearchRepository.search(queryStringQuery(query), pageable);
         return result.map(person -> personMapper.personToPersonDTO(person));
+    }
+
+    // FIXME: refactor
+    @Override
+    public void indexSearch() {
+        log.info("Getting data from DB into Elastic Search");
+        List<Person> peopleList = personRepository.findAll();
+        for (Person person : peopleList) {
+            personSearchRepository.save(person);
+        }
     }
 }

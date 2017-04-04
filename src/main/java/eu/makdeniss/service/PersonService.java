@@ -15,4 +15,7 @@ public interface PersonService {
     Page<PersonDTO> findAll(Pageable pageable);
 
     Page<PersonDTO> search(String query, Pageable pageable);
+
+    void indexSearch();
+
 }
